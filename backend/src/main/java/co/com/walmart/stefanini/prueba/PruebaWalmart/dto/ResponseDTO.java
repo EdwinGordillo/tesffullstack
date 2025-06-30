@@ -1,4 +1,4 @@
-package co.com.walmart.stefanini.prueba.dto;
+package co.com.walmart.stefanini.prueba.PruebaWalmart.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
