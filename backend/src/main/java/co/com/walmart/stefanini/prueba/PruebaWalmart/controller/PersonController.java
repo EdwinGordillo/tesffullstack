@@ -21,7 +21,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public ResponseDTO<Person> getById(@PathVariable Long id) {
+    public ResponseDTO<Person> getById(@PathVariable("id") Long id) {
         return new ResponseDTO<>(true, "Persona encontrada", service.getById(id));
     }
 
@@ -31,12 +31,12 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public ResponseDTO<Person> update(@PathVariable Long id, @RequestBody Person person) {
+    public ResponseDTO<Person> update(@PathVariable("id") Long id, @RequestBody Person person) {
         return new ResponseDTO<>(true, "Persona actualizada", service.update(id, person));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseDTO<String> delete(@PathVariable Long id) {
+    public ResponseDTO<String> delete(@PathVariable("id") Long id) {
         service.delete(id);
         return new ResponseDTO<>(true, "Persona eliminada", null);
     }

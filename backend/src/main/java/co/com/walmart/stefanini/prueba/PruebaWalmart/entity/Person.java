@@ -1,14 +1,14 @@
 package co.com.walmart.stefanini.prueba.PruebaWalmart.entity;
 
-import lombok.Data;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import lombok.Data;
 
 @Entity
 @Data
@@ -22,10 +22,10 @@ public class Person {
 
     private String apellido;
 
+    @Column(name = "fecha_nacimiento")  // 👈 Esto enlaza con la columna real en MySQL
     private LocalDate fechaNacimiento;
 
     private String puesto;
 
     private BigDecimal sueldo;
-    
 }
