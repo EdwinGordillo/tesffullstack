@@ -14,7 +14,7 @@ Este repositorio contiene el script necesario para crear la base de datos utiliz
 | `id`           | INT            | Clave primaria, autoincremental     |
 | `nombre`       | VARCHAR(50)    | Nombre de la persona                |
 | `apellido`     | VARCHAR(50)    | Apellido de la persona              |
-| `fechaNacimiento` | DATE        | Fecha de nacimiento                 |
+| `fecha_nacimiento` | DATE        | Fecha de nacimiento                 |
 | `puesto`       | VARCHAR(100)   | Puesto que ocupa la persona         |
 | `sueldo`       | DECIMAL(10,2)  | Sueldo mensual                      |
 
