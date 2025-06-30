@@ -92,54 +92,50 @@ http://localhost:8080
 | PUT    | `/api/personas/{id}` | Actualizar una persona existente |
 | DELETE | `/api/personas/{id}` | Eliminar una persona por ID      |
 
-### Pruebas Unitarias y Base de Datos
+### Pruebas Unitarias - PersonController
 
-Este proyecto incluye pruebas unitarias para validar el comportamiento de los endpoints del controlador (`PersonController`), utilizando el enfoque de pruebas con `@WebMvcTest` y `MockMvc`.
+Este proyecto incluye una serie de pruebas unitarias automatizadas para verificar el correcto funcionamiento de los endpoints del controlador `PersonController`, que forma parte del sistema de gestión de personas.
 
----
+## Tecnología utilizada
 
-## Comando a escribir
+- **Spring Boot**
+- **Spring Test + MockMvc**
+- **JUnit 5**
+- **Jackson (ObjectMapper)** para manipular JSON
+
+## Ubicación de las pruebas
+
+Las pruebas se encuentran en el archivo:
 ```
-mvn -Dtest=PersonControllerTest test
+src/test/java/co/com/walmart/stefanini/prueba/PruebaWalmart/controller/PersonControllerTest.java
 ```
+## Qué cubren las pruebas
 
----
+Las pruebas automatizadas cubren los siguientes casos de uso del API REST:
 
-## ¿Qué se prueba?
+| Prueba | Descripción |
+|--------|-------------|
+| `testCreatePerson()` | Verifica que se pueda crear una persona correctamente mediante el endpoint POST `/api/personas`. |
+| `testGetById()` | Asegura que una persona específica pueda ser recuperada por su ID usando GET `/api/personas/{id}`. |
+| `testUpdatePerson()` | Verifica que se pueda actualizar una persona usando PUT `/api/personas/{id}`. |
+| `testDeletePerson()` | Confirma que una persona puede eliminarse exitosamente mediante DELETE `/api/personas/{id}`. |
+| `testGetAll()` | Valida que el endpoint GET `/api/personas` devuelva una lista de todas las personas existentes. |
 
-Las pruebas cubren:
+## Flujo de ejecución de pruebas
 
-- **GET /api/personas** → Lista completa de personas
-- **GET /api/personas/{id}** → Consulta individual
-- **POST /api/personas** → Creación con retorno del ID
-- **PUT /api/personas/{id}** → Actualización con nuevos valores
-- **DELETE /api/personas/{id}** → Eliminación exitosa
+Cada prueba:
+1. Llama internamente a `createPerson()` para registrar una nueva persona usando el endpoint real.
+2. Usa el ID generado para ejecutar las operaciones necesarias (`GET`, `PUT`, `DELETE`, etc.).
+3. Verifica que la respuesta sea exitosa y que los valores retornados sean correctos (por ejemplo, nombre actualizado, lista no vacía, etc.).
 
-Cada prueba asegura que:
+> Nota: las pruebas son completamente integradas, interactúan con la base de datos MySQL configurada en el entorno, sin mocks.
 
-- La respuesta tenga la estructura esperada (`status`, `msg`, `data`)
-- Todos los campos de la entidad `Person` estén correctamente representados en el JSON
+## Cómo ejecutar las pruebas
 
----
+Puedes ejecutar las pruebas con cualquiera de estas opciones:
 
-## Uso de base de datos embebida (H2)
+### Desde línea de comandos
 
-Aunque el proyecto principal utiliza MySQL, para las pruebas unitarias no es necesario conectarse a la base de datos real y por ello se da el uso de una base de datos embebida H2 en memoria para las pruebas automatizadas. Esto permite:
-
-- Ejecutar pruebas sin depender de un servidor de base de datos activo
-- Mayor velocidad y portabilidad
-- Evitar modificaciones no deseadas en datos reales
-
-Para lograrlo, basta con crear un archivo `application-test.properties` con la siguiente configuración:
-
-```properties
-# src/test/resources/application-test.properties
-
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.show-sql=true
+```bash
+mvn test
 ```
