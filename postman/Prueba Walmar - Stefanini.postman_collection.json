@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "04ac7d58-d8c0-40fa-8ccb-77daf7299959",
+		"name": "Prueba Walmar - Stefanini",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11933441"
+	},
+	"item": [
+		{
+			"name": "Obtener todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/personas"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/personas/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/personas/15"
+			},
+			"response": []
+		},
+		{
+			"name": "Creación de personas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Edwin\",\r\n    \"apellido\": \"Gordillo\",\r\n    \"fechaNacimiento\": \"2001-03-21\",\r\n    \"puesto\": \"Desarrollador Java - FullStack\",\r\n    \"sueldo\": 300000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/personas"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualización por persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Edwin\",\r\n    \"apellido\": \"Gordillo\",\r\n    \"fechaNacimiento\": \"2001-03-21\",\r\n    \"puesto\": \"Desarrollador Java - FullStack\",\r\n    \"sueldo\": 300000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/personas"
+			},
+			"response": []
+		}
+	]
+}
