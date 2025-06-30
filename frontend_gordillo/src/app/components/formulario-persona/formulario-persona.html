@@ -1,0 +1,39 @@
+<mat-card class="form-card">
+  <mat-toolbar color="primary">{{ esEdicion ? 'Editar Persona' : 'Nueva Persona' }}</mat-toolbar>
+
+  <form (ngSubmit)="guardar()" class="formulario">
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="persona.nombre" name="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Apellido</mat-label>
+      <input matInput [(ngModel)]="persona.apellido" name="apellido" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput type="date" [(ngModel)]="persona.fechaNacimiento" name="fechaNacimiento" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Puesto</mat-label>
+      <input matInput [(ngModel)]="persona.puesto" name="puesto" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Sueldo</mat-label>
+      <input matInput type="number" [(ngModel)]="persona.sueldo" name="sueldo" required>
+    </mat-form-field>
+
+    <div class="botones">
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>save</mat-icon> Guardar
+      </button>
+      <button mat-stroked-button color="warn" type="button" (click)="cancelar()">
+        <mat-icon>cancel</mat-icon> Cancelar
+      </button>
+    </div>
+  </form>
+</mat-card>

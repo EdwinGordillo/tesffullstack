@@ -1,0 +1,27 @@
+.form-card {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo {
+  margin-bottom: 20px;
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+mat-toolbar {
+  margin-bottom: 20px;
+  border-radius: 8px 8px 0 0;
+}
