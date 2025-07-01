@@ -22,7 +22,7 @@ public class Person {
 
     private String apellido;
 
-    @Column(name = "fecha_nacimiento")  // 👈 Esto enlaza con la columna real en MySQL
+    @Column(name = "fecha_nacimiento") 
     private LocalDate fechaNacimiento;
 
     private String puesto;
